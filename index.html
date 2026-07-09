@@ -124,7 +124,6 @@ body::before {
   color: #082d47;
 }
 
-/* Hero */
 .hero {
   min-height: 92vh;
   display: grid;
@@ -136,7 +135,9 @@ body::before {
   overflow: hidden;
   background:
     var(--hero-overlay),
-    url('hero-background.jpg') center/cover no-repeat;
+    radial-gradient(circle at top left, rgba(212,175,55,0.32), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(20,115,82,0.38), transparent 36%),
+    linear-gradient(135deg, #082d47, #147352);
   border-bottom: 8px solid var(--gold);
 }
 
@@ -278,6 +279,21 @@ h2::after {
   box-shadow: 0 15px 35px rgba(0,0,0,0.08);
 }
 
+.profile-initial {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 1.2rem;
+  border: 7px solid var(--gold);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--gold-soft);
+  font-family: 'Great Vibes', cursive;
+  font-size: 5rem;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.18);
+}
+
 .profile-img {
   width: 190px;
   height: 190px;
@@ -417,27 +433,16 @@ h2::after {
   transform: translateY(-3px);
 }
 
-/* Gallery */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.1rem;
-  margin-top: 1.8rem;
-}
-
-.gallery-grid img {
-  width: 100%;
-  height: 285px;
-  object-fit: cover;
-  border-radius: 22px;
-  box-shadow: 0 14px 32px rgba(0,0,0,0.14);
-  border: 1px solid var(--border);
-  transition: transform 0.35s ease;
-}
-
-.gallery-grid img:hover {
-  transform: scale(1.035);
-}
+<div class="gallery-grid">
+  <img src="MAL_0016.JPG" alt="Wedding Moment 1" />
+  <img src="MAL_0019.JPG" alt="Wedding Moment 2" />
+  <img src="WhatsApp Image 2026-07-09 at 2.15.40 PM.jpeg" alt="Wedding Moment 3" />
+  <img src="WhatsApp Image 2026-07-09 at 2.15.41 PM.jpeg" alt="Wedding Moment 4" />
+  <img src="WhatsApp Image 2026-07-09 at 2.15.44 PM.jpeg" alt="Wedding Moment 5" />
+  <img src="WhatsApp Image 2026-07-09 at 2.18.57 PM.jpeg" alt="Wedding Moment 6" />
+  <img src="WhatsApp Image 2026-07-09 at 2.18.58 PM.jpeg" alt="Wedding Moment 7" />
+  <img src="WhatsApp Image 2026-07-09 at 2.18.59 PM.jpeg" alt="Wedding Moment 8" />
+</div>
 
 /* Family */
 .family-grid {
@@ -469,8 +474,7 @@ h2::after {
 .footer {
   text-align: center;
   background:
-    linear-gradient(135deg, rgba(8,45,71,0.96), rgba(20,115,82,0.94)),
-    url('hero-background.jpg') center/cover no-repeat;
+    linear-gradient(135deg, rgba(8,45,71,0.96), rgba(20,115,82,0.94));
   color: white;
   padding: 4.5rem 1.5rem;
   border-top: 8px solid var(--gold);
@@ -572,7 +576,7 @@ h2::after {
 
     <div class="couple-grid">
       <div class="person">
-        <img src="groom_picture.jpg" alt="Shridharan" class="profile-img" />
+        <div class="profile-initial">S</div>
         <h3>Chi. B. Shridharan</h3>
         <p><strong>Ph.D. Astrophysics</strong></p>
         <p>Post Doctoral Fellowship</p>
@@ -582,7 +586,7 @@ h2::after {
       <div class="ampersand">&</div>
 
       <div class="person">
-        <img src="bride_picture.jpg" alt="Jeevika" class="profile-img" />
+        <div class="profile-initial">J</div>
         <h3>Sow. S. Jeevika</h3>
         <p><strong>M.Sc., B.Ed.</strong></p>
         <p>PU Co-Ordinator & Student Counsellor</p>
