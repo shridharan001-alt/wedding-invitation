@@ -123,23 +123,8 @@ body::before {
   background: linear-gradient(135deg, var(--gold), var(--gold-soft));
   color: #082d47;
 }
-  
-.map-window {
-  margin: 2rem auto 0;
-  width: min(850px, 100%);
-  border-radius: 24px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow: 0 18px 45px rgba(0,0,0,0.16);
-  background: var(--card-solid);
-}
 
-.map-window iframe {
-  display: block;
-  width: 100%;
-  height: 360px;
-}
-  
+/* Hero */
 .hero {
   min-height: 92vh;
   display: grid;
@@ -310,16 +295,6 @@ h2::after {
   box-shadow: 0 14px 35px rgba(0,0,0,0.18);
 }
 
-.profile-img {
-  width: 190px;
-  height: 190px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 7px solid var(--gold);
-  box-shadow: 0 14px 35px rgba(0,0,0,0.18);
-  margin-bottom: 1.2rem;
-}
-
 .person h3 {
   font-family: 'Cormorant Garamond', serif;
   color: var(--secondary);
@@ -425,6 +400,22 @@ h2::after {
   font-size: 1.1rem;
 }
 
+.map-window {
+  margin: 2rem auto 0;
+  width: min(850px, 100%);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.16);
+  background: var(--card-solid);
+}
+
+.map-window iframe {
+  display: block;
+  width: 100%;
+  height: 360px;
+}
+
 .action-row {
   display: flex;
   justify-content: center;
@@ -449,16 +440,99 @@ h2::after {
   transform: translateY(-3px);
 }
 
-<div class="gallery-grid">
-  <img src="MAL_0016.JPG" alt="Wedding Moment 1" />
-  <img src="MAL_0019.JPG" alt="Wedding Moment 2" />
-  <img src="WhatsApp Image 2026-07-09 at 2.15.40 PM.jpeg" alt="Wedding Moment 3" />
-  <img src="WhatsApp Image 2026-07-09 at 2.15.41 PM.jpeg" alt="Wedding Moment 4" />
-  <img src="WhatsApp Image 2026-07-09 at 2.15.44 PM.jpeg" alt="Wedding Moment 5" />
-  <img src="WhatsApp Image 2026-07-09 at 2.18.57 PM.jpeg" alt="Wedding Moment 6" />
-  <img src="WhatsApp Image 2026-07-09 at 2.18.58 PM.jpeg" alt="Wedding Moment 7" />
-  <img src="WhatsApp Image 2026-07-09 at 2.18.59 PM.jpeg" alt="Wedding Moment 8" />
-</div>
+/* Slideshow */
+.slideshow-container {
+  width: min(850px, 100%);
+  height: 520px;
+  margin: 2rem auto 0;
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 22px 55px rgba(0,0,0,0.18);
+  background: var(--card-solid);
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  animation: slideFade 0.8s ease;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.8rem;
+  color: #082d47;
+  background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  z-index: 5;
+}
+
+.slide-btn:hover {
+  transform: translateY(-50%) scale(1.08);
+}
+
+.prev {
+  left: 18px;
+}
+
+.next {
+  right: 18px;
+}
+
+.slide-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1.4rem;
+  flex-wrap: wrap;
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--muted);
+  opacity: 0.45;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  width: 32px;
+  border-radius: 999px;
+  background: var(--gold);
+  opacity: 1;
+}
+
+@keyframes slideFade {
+  from {
+    opacity: 0.25;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 /* Family */
 .family-grid {
@@ -489,8 +563,7 @@ h2::after {
 /* Footer */
 .footer {
   text-align: center;
-  background:
-    linear-gradient(135deg, rgba(8,45,71,0.96), rgba(20,115,82,0.94));
+  background: linear-gradient(135deg, rgba(8,45,71,0.96), rgba(20,115,82,0.94));
   color: white;
   padding: 4.5rem 1.5rem;
   border-top: 8px solid var(--gold);
@@ -510,6 +583,7 @@ h2::after {
   color: white;
 }
 
+/* Animations */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -532,6 +606,11 @@ h2::after {
     right: 12px;
   }
 
+  .theme-toggle button {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+
   .hero {
     min-height: 86vh;
     padding-top: 7rem;
@@ -547,13 +626,22 @@ h2::after {
 
   .events-grid,
   .family-grid,
-  .gallery-grid,
   .countdown {
     grid-template-columns: 1fr;
   }
 
-  .gallery-grid img {
-    height: 240px;
+  .slideshow-container {
+    height: 360px;
+  }
+
+  .slide-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+  }
+
+  .map-window iframe {
+    height: 300px;
   }
 }
 </style>
@@ -562,7 +650,11 @@ h2::after {
 <body>
 
 <div class="petals">
-  <span></span><span></span><span></span><span></span><span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
 </div>
 
 <div class="theme-toggle">
@@ -654,42 +746,85 @@ h2::after {
     </div>
   </section>
 
-<section class="section reveal">
-  <h2>Venue</h2>
+  <section class="section reveal">
+    <h2>Venue</h2>
 
-  <div class="venue-name">TCR. Sri Mangal Mahal Tirumana Mandapam</div>
-  <p class="address">
-    Krishnagiri Main Road, Near Krishna Silks, Tirupathur.
-  </p>
+    <div class="venue-name">TCR. Sri Mangal Mahal Tirumana Mandapam</div>
+    <p class="address">
+      Krishnagiri Main Road, Near Krishna Silks, Tirupathur.
+    </p>
 
-  <div class="map-window">
-    <iframe
-      src="https://www.google.com/maps?q=TCR%20Sri%20Mangal%20Mahal%20Tirumana%20Mandapam%20Krishnagiri%20Main%20Road%20Near%20Krishna%20Silks%20Tirupathur&output=embed"
-      width="100%"
-      height="350"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
+    <div class="map-window">
+      <iframe
+        src="https://www.google.com/maps?q=TCR%20Sri%20Mangal%20Mahal%20Tirumana%20Mandapam%20Krishnagiri%20Main%20Road%20Near%20Krishna%20Silks%20Tirupathur&output=embed"
+        width="100%"
+        height="350"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
 
-  <div class="action-row">
-    <a class="btn" href="https://www.google.com/maps/search/?api=1&query=TCR%20Sri%20Mangal%20Mahal%20Tirumana%20Mandapam%20Tirupathur" target="_blank">
-      View Location
-    </a>
-    <a class="btn" href="tel:9886853266">Call for Assistance</a>
-  </div>
-</section>
+    <div class="action-row">
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=TCR%20Sri%20Mangal%20Mahal%20Tirumana%20Mandapam%20Tirupathur" target="_blank">
+        View Location
+      </a>
+      <a class="btn" href="tel:9886853266">Call for Assistance</a>
+    </div>
+  </section>
 
   <section class="section reveal">
     <h2>Our Moments</h2>
     <p class="address">A glimpse into our beautiful journey together.</p>
 
-    <div class="gallery-grid">
-      <img src="gallery_image_1.jpg" alt="Couple Moment 1" />
-      <img src="gallery_image_2.jpg" alt="Couple Moment 2" />
-      <img src="gallery_image_3.jpg" alt="Couple Moment 3" />
+    <div class="slideshow-container">
+
+      <div class="slide active">
+        <img src="MAL_0016.JPG" alt="Wedding Moment 1">
+      </div>
+
+      <div class="slide">
+        <img src="MAL_0019.JPG" alt="Wedding Moment 2">
+      </div>
+
+      <div class="slide">
+        <img src="WhatsApp Image 2026-07-09 at 2.15.40 PM.jpeg" alt="Wedding Moment 3">
+      </div>
+
+      <div class="slide">
+        <img src="WhatsApp Image 2026-07-09 at 2.15.41 PM.jpeg" alt="Wedding Moment 4">
+      </div>
+
+      <div class="slide">
+        <img src="WhatsApp Image 2026-07-09 at 2.15.44 PM.jpeg" alt="Wedding Moment 5">
+      </div>
+
+      <div class="slide">
+        <img src="WhatsApp Image 2026-07-09 at 2.18.57 PM.jpeg" alt="Wedding Moment 6">
+      </div>
+
+      <div class="slide">
+        <img src="WhatsApp Image 2026-07-09 at 2.18.58 PM.jpeg" alt="Wedding Moment 7">
+      </div>
+
+      <div class="slide">
+        <img src="WhatsApp Image 2026-07-09 at 2.18.59 PM.jpeg" alt="Wedding Moment 8">
+      </div>
+
+      <button class="slide-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+      <button class="slide-btn next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+
+    <div class="slide-dots">
+      <span class="dot active" onclick="goToSlide(0)"></span>
+      <span class="dot" onclick="goToSlide(1)"></span>
+      <span class="dot" onclick="goToSlide(2)"></span>
+      <span class="dot" onclick="goToSlide(3)"></span>
+      <span class="dot" onclick="goToSlide(4)"></span>
+      <span class="dot" onclick="goToSlide(5)"></span>
+      <span class="dot" onclick="goToSlide(6)"></span>
+      <span class="dot" onclick="goToSlide(7)"></span>
     </div>
   </section>
 
@@ -745,6 +880,7 @@ function setTheme(theme) {
 const savedTheme = localStorage.getItem("wedding-theme") || "bright";
 setTheme(savedTheme);
 
+/* Countdown */
 const weddingDate = new Date("2026-08-30T06:00:00+05:30").getTime();
 
 function updateCountdown() {
@@ -772,6 +908,41 @@ function updateCountdown() {
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
+/* Slideshow */
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+function showSlide(index) {
+  if (slides.length === 0) return;
+
+  if (index >= slides.length) {
+    currentSlide = 0;
+  } else if (index < 0) {
+    currentSlide = slides.length - 1;
+  } else {
+    currentSlide = index;
+  }
+
+  slides.forEach(slide => slide.classList.remove("active"));
+  dots.forEach(dot => dot.classList.remove("active"));
+
+  slides[currentSlide].classList.add("active");
+  dots[currentSlide].classList.add("active");
+}
+
+function changeSlide(step) {
+  showSlide(currentSlide + step);
+}
+
+function goToSlide(index) {
+  showSlide(index);
+}
+
+setInterval(() => {
+  changeSlide(1);
+}, 4000);
 </script>
 
 </body>
