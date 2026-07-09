@@ -198,14 +198,30 @@ body {
   border: 1px solid rgba(255,255,255,0.35);
   background: rgba(255,255,255,0.13);
   backdrop-filter: blur(10px);
-  padding: 0.75rem 0.95rem;
-  border-radius: 999px;
+  padding: 0.9rem 1rem;
+  border-radius: 22px;
   font-weight: 600;
   font-size: 0.92rem;
+  display: grid;
+  gap: 0.25rem;
+  text-align: center;
 }
 
 .date-pill span {
   color: var(--gold-soft);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.date-pill strong {
+  color: white;
+  font-size: 1.05rem;
+}
+
+.date-pill small {
+  color: #fff7dc;
+  font-size: 0.95rem;
 }
 
 /* Sections */
@@ -701,8 +717,17 @@ html[data-theme="dark"] .bottom-actions {
       </p>
 
       <div class="hero-date">
-        <div class="date-pill"><span>Reception</span> · 29 August 2026 · 7:00 PM onwards</div>
-        <div class="date-pill"><span>Wedding</span> · 30 August 2026 · 6:00 AM to 7:00 AM</div>
+        <div class="date-pill">
+            <span>Reception</span>
+            <strong>29 August 2026</strong>
+            <small>7:00 PM onward</small>
+        </div>
+
+        <div class="date-pill">
+          <span>Wedding</span>
+          <strong>30 August 2026</strong>
+          <small>6:00 AM to 7:00 AM</small>
+        </div>
       </div>
     </div>
   </header>
